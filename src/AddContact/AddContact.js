@@ -30,13 +30,13 @@ class AddContact extends Component {
             <div >
                 <p>Add New Contact:</p>
                 <form className="AddContact" onSubmit={this.submit}>
-                    <label>Name: 
+                    <label className="inputField">Name: 
                         <input type="text" name="name" onChange={this.change} value={this.state.name} />
                     </label>
-                    <label>Phone: 
+                    <label className="inputField">Phone: 
                         <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
                     </label>
-                    <label>Email: 
+                    <label className="inputField">Email: 
                         <input type="text" name="email" onChange={this.change} value={this.state.email} />
                     </label>
                     <input type="submit" value="Submit" />

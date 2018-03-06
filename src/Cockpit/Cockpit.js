@@ -1,12 +1,11 @@
 import React from 'react';
 import './Cockpit.css';
-import logo from '../logo.svg';
+//import logo from '../logo.svg';
 
 const Cockpit = (props) => {
     return (
         <header className="Cockpit-header">
-          <img src={logo} className="Cockpit-logo" alt="logo" />
-          <h1 className="Cockpit-title">Address Book</h1>
+          <h1 className="Cockpit-title">Basic React Address-Book Frontend</h1>
         </header>
     );
 }

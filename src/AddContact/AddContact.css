@@ -1,3 +1,7 @@
 .AddContact {
     display:inline-block;
 }
+
+.inputField {
+    padding:20px;
+}

@@ -4,13 +4,14 @@
 }
   
 .Cockpit-header {
-    background-color: #222;
-    height: 150px;
+    background-color:#2c3e50;
+    height: 120px;
     padding: 20px;
     color: white;
 }
   
 .Cockpit-title {
-    font-size: 1.5em;
+    font-size: 2em;
+    font-family: "open sans", sans-serif;
 }
 
