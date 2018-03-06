@@ -1,0 +1,25 @@
+
+
+.ContactRow {
+    width:70%;
+    font-size: 0.75em;
+    margin: 10px auto;
+    border: 2px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+    
+};
+
+.ContactRow:after {
+    content: "";
+    display: table;
+    clear: both;
+};
+
+.ContactColumn {
+    float: left;
+    width: 33.33%;
+};
+
