@@ -27,8 +27,8 @@ class AddContact extends Component {
 
     render() {
         return (
-            <div >
-                <p>Add New Contact:</p>
+            <div className="FormContainer">
+                <p>Add New Contact</p>
                 <form className="AddContact" onSubmit={this.submit}>
                     <label className="inputField">Name: 
                         <input type="text" name="name" onChange={this.change} value={this.state.name} />

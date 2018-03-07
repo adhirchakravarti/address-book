@@ -5,3 +5,12 @@
 .inputField {
     padding:20px;
 }
+
+.FormContainer {
+    background-color: #ecf0f1;
+    border:1px solid #95a5a6;
+    padding: 20px;
+    margin:20px auto;
+    width:80%;
+    font-weight: bold;
+}
