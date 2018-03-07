@@ -8,7 +8,7 @@ class SearchBar extends Component {
 
     change = e => {
         e.preventDefault();
-        console.log(e.target.value);
+        //console.log(e.target.value);
         this.setState({
             query:e.target.value
         });

@@ -43,6 +43,32 @@ class App extends Component {
     });
   };
 
+  searchHandler2 = (queryObj) => {
+    let contacts = [...this.state.contacts];
+    //let results = [];
+    let foundContacts = [];
+    contacts.forEach((el, index)=>{
+      let myRe = new RegExp(queryObj.query,"gi");
+      if ((el.name.search(myRe) !==-1) || (el.phone.search(myRe)!==-1) || (el.email.search(myRe)!==-1)) {
+        //results.push(el.name.match(myRe));
+        foundContacts.push(el);
+      }
+    })
+    //console.log(results);
+    console.log(foundContacts);
+    this.setState({
+      contacts:foundContacts
+    });
+  }
+
+  deleteContactHandler = (contactIndex) => {
+    const contacts = [...this.state.contacts];
+    contacts.splice(contactIndex,1);
+    this.setState({
+      contacts:contacts
+    });
+  }
+
   render() {
     let contactList = null;
     let contacts = [...this.state.contacts];
@@ -50,13 +76,14 @@ class App extends Component {
         contactList = (
           <ContactList
           contacts = {contacts}
+          delete = {this.deleteContactHandler}
           />
         );
     }
     return (
       <div className="App">
         <Cockpit/>
-        <SearchBar onType={(query)=>this.searchHandler(query)}/>
+        <SearchBar onType={(query)=>this.searchHandler2(query)}/>
         <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/> 
         {contactList}
       </div>
