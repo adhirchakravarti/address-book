@@ -9,7 +9,8 @@ import SearchBar from './SearchBar/SearchBar.js';
 
 class App extends Component {
   state = {
-    contacts:[]
+    contacts:[],
+    contactsToDisplay:[]
   };
   
   addContactHandler = (newContact) => {
@@ -30,22 +31,23 @@ class App extends Component {
     }
 
   };
-
-  searchHandler = (queryObj) => {
-    console.log(queryObj);
-    let contacts = [...this.state.contacts];
-    let result = contacts.filter((el,index)=>{
-      return el.name.toLowerCase()===queryObj.query.toLowerCase() });
-    console.log(result);
-    let newContacts = [...result];
-    this.setState({
-      contacts:newContacts
-    });
-  };
+  // Deprecated
+  // searchHandler = (queryObj) => {
+  //   console.log(queryObj);
+  //   let contacts = [...this.state.contacts];
+  //   let result = contacts.filter((el,index)=>{
+  //     return el.name.toLowerCase()===queryObj.query.toLowerCase() });
+  //   console.log(result);
+  //   let newContacts = [...result];
+  //   this.setState({
+  //     contacts:newContacts
+  //   });
+  // };
 
   searchHandler2 = (queryObj) => {
     let contacts = [...this.state.contacts];
     //let results = [];
+    console.log("Query object: ",queryObj);
     let foundContacts = [];
     contacts.forEach((el, index)=>{
       let myRe = new RegExp(queryObj.query,"gi");
@@ -55,9 +57,15 @@ class App extends Component {
       }
     })
     //console.log(results);
-    console.log(foundContacts);
+    console.log("FoundContacts: ",foundContacts);
     this.setState({
-      contacts:foundContacts
+      contactsToDisplay:foundContacts
+    });
+  }
+
+  resetHandler = () => {
+    this.setState({
+      contactsToDisplay:[]
     });
   }
 
@@ -69,21 +77,41 @@ class App extends Component {
     });
   }
 
-  render() {
+  renderContacts = () => {
     let contactList = null;
-    let contacts = [...this.state.contacts];
-    if (contacts.length > 0) {
-        contactList = (
-          <ContactList
-          contacts = {contacts}
-          delete = {this.deleteContactHandler}
-          />
-        );
+    if (this.state.contactsToDisplay.length === 0) {
+      let contacts = [...this.state.contacts];
+      if (contacts.length > 0) {
+          contactList = (
+            <ContactList
+            contacts = {contacts}
+            delete = {this.deleteContactHandler}
+            />
+          );
+      }
+    } else {
+      // eslint-disable-next-line
+      let allContacts = [...this.state.contacts];
+      //let displayedContacts = [];
+       contactList = (
+        <ContactList
+        contacts = {this.state.contactsToDisplay}
+        delete = {this.deleteContactHandler}
+        />
+      );
+
     }
+    //console.log(contactList);
+    return contactList;
+  }
+
+  render() {
+    let contactList = this.renderContacts();
+    
     return (
       <div className="App">
         <Cockpit/>
-        <SearchBar onType={(query)=>this.searchHandler2(query)}/>
+        <SearchBar onType={(query)=>this.searchHandler2(query)} onClear={this.resetHandler}/>
         <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/> 
         {contactList}
       </div>
