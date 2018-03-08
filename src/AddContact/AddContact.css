@@ -1,9 +1,21 @@
 .AddContact {
-    display:inline-block;
+    display:grid;
+    grid-template-columns: 31% 31% 31% 7%;
+}
+
+.AddContact:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .inputField {
     padding:20px;
+    float: left;
+}
+
+.AddContactButton{
+    float:right;
 }
 
 .FormContainer {

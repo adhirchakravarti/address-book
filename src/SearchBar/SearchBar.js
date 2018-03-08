@@ -45,7 +45,7 @@ class SearchBar extends Component {
     render(){
         return (
             <div className="SearchBar">
-                <form className="AddContact" onSubmit={this.submit}>
+                <form className="SearchContact" onSubmit={this.submit}>
                     <label>Search:
                         <input type="text"
                         onChange={this.change} placeholder="Search Contact.." name="search" value={this.state.query}/>

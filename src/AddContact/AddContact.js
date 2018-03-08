@@ -39,7 +39,7 @@ class AddContact extends Component {
                     <label className="inputField">Email: 
                         <input type="text" name="email" onChange={this.change} value={this.state.email} />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input className="AddContactButton" type="submit" value="Submit" />
                 </form>
             </div>
         );
