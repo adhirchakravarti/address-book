@@ -10,7 +10,9 @@ const ContactList = (props) => props.contacts.map((element, index)=>{
                     phone={element.phone}
                     email={element.email}
                     key={index}
+                    index={index}
                     remove={()=>props.delete(index)}
+                    edit={props.change}
                     />
                 );
               });

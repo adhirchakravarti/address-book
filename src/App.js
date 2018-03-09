@@ -77,6 +77,24 @@ class App extends Component {
     });
   }
 
+  editContactHandler = (contactObj) => {
+    const contacts = [...this.state.contacts];
+    console.log(contactObj);
+    //let index, editedContact, form;
+    // const index = contactObj[index];
+    const {index:index,editForm:form,...editedContact} = contactObj;
+    console.log(index);
+    console.log(form);
+    console.log(editedContact);
+    //console.log(contactObj);
+    console.log("before: ",contacts);
+    contacts.splice(index,1, editedContact);
+    console.log("after: ",contacts);
+    this.setState({
+      contacts:contacts
+    });
+  }
+
   renderContacts = () => {
     let contactList = null;
     if (this.state.contactsToDisplay.length === 0) {
@@ -86,6 +104,7 @@ class App extends Component {
             <ContactList
             contacts = {contacts}
             delete = {this.deleteContactHandler}
+            change = {this.editContactHandler}
             />
           );
       }
@@ -97,6 +116,7 @@ class App extends Component {
         <ContactList
         contacts = {this.state.contactsToDisplay}
         delete = {this.deleteContactHandler}
+        change = {this.editContactHandler}
         />
       );
 

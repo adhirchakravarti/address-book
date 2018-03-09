@@ -10,7 +10,7 @@
     padding: 10px;
     display: grid;
     /* grid-template-columns: 2fr 2fr 2fr 0.1fr fraction */
-    grid-template-columns: 32% 32% 32% 4%;
+    grid-template-columns: 31% 30% 31% 4% 4%;
 };
 
 .ContactRow:after {
@@ -41,4 +41,31 @@
     background-color: #e67e22;
     /* size: 2rem; */
     transform: scale(1.2, 1.2);
+}
+
+.EditButton {
+    background-color: buttonface;
+    border: 1px solid dimgrey;
+    size:1rem;
+    box-shadow: 0 2px 3px #ccc;
+    text-align: center;
+    text-decoration: none;
+    float:right;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    height:1.5rem;
+}
+
+.EditButton:hover {
+    background-color: #1abc9c;
+    /* size: 2rem; */
+    transform: scale(1.2, 1.2);
+}
+
+.EditRow {
+    margin:auto;
+    padding:20px;
+    display: inline;
+    font-size: 0.75rem;
 }
