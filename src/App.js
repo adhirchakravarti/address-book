@@ -31,20 +31,9 @@ class App extends Component {
     }
 
   };
-  // Deprecated
-  // searchHandler = (queryObj) => {
-  //   console.log(queryObj);
-  //   let contacts = [...this.state.contacts];
-  //   let result = contacts.filter((el,index)=>{
-  //     return el.name.toLowerCase()===queryObj.query.toLowerCase() });
-  //   console.log(result);
-  //   let newContacts = [...result];
-  //   this.setState({
-  //     contacts:newContacts
-  //   });
-  // };
+ 
 
-  searchHandler2 = (queryObj) => {
+  searchHandler = (queryObj) => {
     let contacts = [...this.state.contacts];
     //let results = [];
     console.log("Query object: ",queryObj);
@@ -82,13 +71,13 @@ class App extends Component {
     console.log(contactObj);
     //let index, editedContact, form;
     // const index = contactObj[index];
-    const {index:index,editForm:form,...editedContact} = contactObj;
-    console.log(index);
+    const {index:ind,editForm:form,...editedContact} = contactObj;
+    console.log(ind);
     console.log(form);
     console.log(editedContact);
     //console.log(contactObj);
     console.log("before: ",contacts);
-    contacts.splice(index,1, editedContact);
+    contacts.splice(ind,1, editedContact);
     console.log("after: ",contacts);
     this.setState({
       contacts:contacts
@@ -131,7 +120,7 @@ class App extends Component {
     return (
       <div className="App">
         <Cockpit/>
-        <SearchBar onType={(query)=>this.searchHandler2(query)} onClear={this.resetHandler}/>
+        <SearchBar onType={(query)=>this.searchHandler(query)} onClear={this.resetHandler}/>
         <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/> 
         {contactList}
       </div>
