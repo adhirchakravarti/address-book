@@ -23,28 +23,34 @@ class EditContact extends Component {
         e.preventDefault();
         console.log(this.state);
         this.props.save(this.state);
+        this.setState({
+            name:'',
+            phone:'',
+            email:''
+        });
     }
 
 
     render() {
         return (
             <div className="outer">
-                <div >
+                <p><strong>Edit Contact: {this.props.name}</strong></p>
+                <div className="inner">
                     <label >Name: 
                         <input type="text" name="name" onChange={this.change} value={this.state.name} />
                     </label>
                 </div>
-                <div >
+                <div className="inner">
                     <label >Phone: 
                         <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
                     </label>
                 </div>
-                <div >
+                <div className="inner">
                     <label >Email: 
                         <input type="text" name="email" onChange={this.change} value={this.state.email} />
                     </label>
                 </div>
-                <div >
+                <div className="inner">
                     <button onClick={this.save}>Save</button>
                     <button onClick={this.props.cancel}>Cancel</button>
                 </div>

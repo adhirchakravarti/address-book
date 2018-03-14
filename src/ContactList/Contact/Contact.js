@@ -127,7 +127,7 @@ class Contact extends Component {
                     {editForm}
                 </div>
                 <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
-                    <EditContact cancel={this.hideModalHandler} save={this.save}/>
+                    <EditContact cancel={this.hideModalHandler} save={this.save} name={this.state.name}/>
                 </Modal>
             </Aux>
         );
