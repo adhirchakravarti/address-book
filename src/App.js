@@ -5,12 +5,16 @@ import AddContact from './AddContact/AddContact';
 import ContactList from './ContactList/ContactList.js';
 import Cockpit from './Cockpit/Cockpit.js';
 import SearchBar from './SearchBar/SearchBar.js';
+// import Modal from './Modal/Modal';
+// import EditContact from './EditContact/EditContact';
+
 
 
 class App extends Component {
   state = {
     contacts:[],
-    contactsToDisplay:[]
+    contactsToDisplay:[],
+    showModal:false
   };
   
   addContactHandler = (newContact) => {
@@ -71,9 +75,9 @@ class App extends Component {
     console.log(contactObj);
     //let index, editedContact, form;
     // const index = contactObj[index];
-    const {index:ind,editForm:form,...editedContact} = contactObj;
+    const {index:ind,editForm:form, showEditForm:showForm, showModal:modal,...editedContact} = contactObj;
     console.log(ind);
-    console.log(form);
+    //console.log(form);
     console.log(editedContact);
     //console.log(contactObj);
     console.log("before: ",contacts);
@@ -81,6 +85,18 @@ class App extends Component {
     console.log("after: ",contacts);
     this.setState({
       contacts:contacts
+    });
+  }
+  
+  displayModalHandler = () => {
+    this.setState({
+      showModal:true
+    });
+  }
+
+  hideModalHandler = () => {
+    this.setState({
+      showModal:false
     });
   }
 
@@ -94,6 +110,7 @@ class App extends Component {
             contacts = {contacts}
             delete = {this.deleteContactHandler}
             change = {this.editContactHandler}
+            // change2 = {this.displayModalHandler}
             />
           );
       }
@@ -106,6 +123,7 @@ class App extends Component {
         contacts = {this.state.contactsToDisplay}
         delete = {this.deleteContactHandler}
         change = {this.editContactHandler}
+        // change2 = {this.displayModalHandler}
         />
       );
 
@@ -122,6 +140,9 @@ class App extends Component {
         <Cockpit/>
         <SearchBar onType={(query)=>this.searchHandler(query)} onClear={this.resetHandler}/>
         <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/> 
+        {/* <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
+            <EditContact cancel={this.hideModalHandler} edit={this.editContactHandler}/>
+        </Modal> */}
         {contactList}
       </div>
     );

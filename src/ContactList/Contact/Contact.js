@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Contact.css';
+import Aux from '../../hoc/Aux';
+import Modal from '../../Modal/Modal';
+import EditContact from '../../EditContact/EditContact';
 
 class Contact extends Component {
     state = {
@@ -8,7 +11,8 @@ class Contact extends Component {
         email:this.props.email,
         index:this.props.index,
         showEditForm: false,
-        editForm:<div></div>
+        editForm:<div></div>,
+        showModal: false
     };
 
     
@@ -22,8 +26,8 @@ class Contact extends Component {
         //console.log(this.state);
     }
 
-    save = e => {
-        e.preventDefault();
+    save = (contactObj) => {
+        //e.preventDefault();
         // console.log(e.target.children[0].children[0].value);
         // let name = e.target.children[0].children[0].value;
         // let phone = e.target.children[1].children[0].value;
@@ -33,13 +37,35 @@ class Contact extends Component {
         //     phone:phone,
         //     email:email
         // });
-        console.log(this.state);
-
-        this.props.edit(this.state);
+        console.log(contactObj);
+        contactObj.index = this.state.index;
+        console.log(contactObj);
+        // let currentState = {
+        //     ...this.state
+        // };
         this.setState({
-            editForm:<div></div>
+            name: contactObj.name,
+            phone: contactObj.phone,
+            email: contactObj.email,
+            showModal: false
         });
+        // console.log(this.state);
+        this.props.edit(contactObj);
+        
     }
+
+    // editContact2 = () => {
+    //     this.setState({
+    //         showModal: true
+    //     });
+
+    // }
+
+    // cancelContactEdit = () => {
+    //     this.setState({
+    //         showModal: false
+    //     });
+    // }
 
     editContact = () => {
         let editForm = (
@@ -72,21 +98,38 @@ class Contact extends Component {
         
     }
 
+    displayModalHandler = () => {
+        this.setState({
+          showModal:true
+        });
+      }
+    
+      hideModalHandler = () => {
+        this.setState({
+          showModal:false
+        });
+      }
+
     render() {
         let editForm = this.state.editForm;
         return (
-            <div>
-                <div className="ContactRow">
-                    <div className="ContactColumn">Name:{this.props.name}</div>
-                    <div className="ContactColumn">Phone:{this.props.phone}</div>
-                    <div className="ContactColumn">Email:{this.props.email}</div>
-                    <input type="button" className="ContactButton"
-                    onClick={this.props.remove} value="x"/>
-                    <input type="button" className="EditButton"
-                    onClick={this.editContact} value="E"/>
+            <Aux>
+                <div>
+                    <div className="ContactRow">
+                        <div className="ContactColumn">Name:{this.props.name}</div>
+                        <div className="ContactColumn">Phone:{this.props.phone}</div>
+                        <div className="ContactColumn">Email:{this.props.email}</div>
+                        <input type="button" className="ContactButton"
+                        onClick={this.props.remove} value="x"/>
+                        <input type="button" className="EditButton"
+                        onClick={this.displayModalHandler} value="E"/>
+                    </div>
+                    {editForm}
                 </div>
-                {editForm}
-            </div>
+                <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
+                    <EditContact cancel={this.hideModalHandler} save={this.save}/>
+                </Modal>
+            </Aux>
         );
     }
 }

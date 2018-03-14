@@ -13,6 +13,7 @@ const ContactList = (props) => props.contacts.map((element, index)=>{
                     index={index}
                     remove={()=>props.delete(index)}
                     edit={props.change}
+                    edit2 = {props.change2}
                     />
                 );
               });
