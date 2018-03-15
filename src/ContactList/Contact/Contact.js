@@ -10,8 +10,6 @@ class Contact extends Component {
         phone:this.props.phone,
         email:this.props.email,
         index:this.props.index,
-        showEditForm: false,
-        editForm:<div></div>,
         showModal: false
     };
 
@@ -54,49 +52,39 @@ class Contact extends Component {
         
     }
 
-    // editContact2 = () => {
-    //     this.setState({
-    //         showModal: true
-    //     });
+    
+    // This function is deprecated and no longer used
 
-    // }
-
-    // cancelContactEdit = () => {
-    //     this.setState({
-    //         showModal: false
-    //     });
-    // }
-
-    editContact = () => {
-        let editForm = (
-            <form className="EditRow" onSubmit={this.save}>
-                <label className="EditColumn">Name:
-                    <input type="text" name="name"  onChange={this.change}/>
-                </label>
-                <label className="EditColumn">Phone:
-                    <input type="text" name="phone"  onChange={this.change}/>
-                </label>
-                <label className="EditColumn">Email:
-                    <input type="text" name="email"  onChange={this.change}/>
-                </label>
-                <input type="submit" className="SaveButton"
-                    value="Save"/>
-            </form>
-        );
-        let noEditForm = <div></div>;
-        if (this.state.showEditForm === false) {
-            this.setState({
-                editForm:editForm,
-                showEditForm: true
-            });
-        } else {
-            this.setState({
-                editForm:noEditForm,
-                showEditForm:false
-            });
-        }
+    // editContact = () => {
+    //     let editForm = (
+    //         <form className="EditRow" onSubmit={this.save}>
+    //             <label className="EditColumn">Name:
+    //                 <input type="text" name="name"  onChange={this.change}/>
+    //             </label>
+    //             <label className="EditColumn">Phone:
+    //                 <input type="text" name="phone"  onChange={this.change}/>
+    //             </label>
+    //             <label className="EditColumn">Email:
+    //                 <input type="text" name="email"  onChange={this.change}/>
+    //             </label>
+    //             <input type="submit" className="SaveButton"
+    //                 value="Save"/>
+    //         </form>
+    //     );
+    //     let noEditForm = <div></div>;
+    //     if (this.state.showEditForm === false) {
+    //         this.setState({
+    //             editForm:editForm,
+    //             showEditForm: true
+    //         });
+    //     } else {
+    //         this.setState({
+    //             editForm:noEditForm,
+    //             showEditForm:false
+    //         });
+    //     }
         
-    }
+    // }
 
     displayModalHandler = () => {
         this.setState({
@@ -111,7 +99,7 @@ class Contact extends Component {
       }
 
     render() {
-        let editForm = this.state.editForm;
+        // let editForm = this.state.editForm; // deprecated
         return (
             <Aux>
                 <div>
@@ -124,7 +112,7 @@ class Contact extends Component {
                         <input type="button" className="EditButton"
                         onClick={this.displayModalHandler} value="E"/>
                     </div>
-                    {editForm}
+                    {/* {editForm} */} 
                 </div>
                 <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
                     <EditContact cancel={this.hideModalHandler} save={this.save} name={this.state.name}/>

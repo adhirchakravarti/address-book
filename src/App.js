@@ -13,8 +13,7 @@ import SearchBar from './SearchBar/SearchBar.js';
 class App extends Component {
   state = {
     contacts:[],
-    contactsToDisplay:[],
-    showModal:false
+    contactsToDisplay:[]
   };
   
   addContactHandler = (newContact) => {
@@ -31,7 +30,7 @@ class App extends Component {
         contacts:contacts
       });
     } else {
-      console.log("Please enter the name, phone and email address of a contact before pressing Submit");
+      alert("Please enter the name, phone and email address of a contact before pressing Submit");
     }
 
   };
@@ -75,7 +74,7 @@ class App extends Component {
     console.log(contactObj);
     //let index, editedContact, form;
     // const index = contactObj[index];
-    const {index:ind,editForm:form, showEditForm:showForm, showModal:modal,...editedContact} = contactObj;
+    const {index:ind, showModal:modal,...editedContact} = contactObj;
     console.log(ind);
     //console.log(form);
     console.log(editedContact);
@@ -88,17 +87,7 @@ class App extends Component {
     });
   }
   
-  displayModalHandler = () => {
-    this.setState({
-      showModal:true
-    });
-  }
 
-  hideModalHandler = () => {
-    this.setState({
-      showModal:false
-    });
-  }
 
   renderContacts = () => {
     let contactList = null;
@@ -110,7 +99,7 @@ class App extends Component {
             contacts = {contacts}
             delete = {this.deleteContactHandler}
             change = {this.editContactHandler}
-            // change2 = {this.displayModalHandler}
+            
             />
           );
       }
@@ -123,7 +112,7 @@ class App extends Component {
         contacts = {this.state.contactsToDisplay}
         delete = {this.deleteContactHandler}
         change = {this.editContactHandler}
-        // change2 = {this.displayModalHandler}
+        
         />
       );
 
