@@ -3,11 +3,11 @@
     flex-flow: column;
     align-items: center;
     padding:0.5rem 0rem;
+    justify-content: center;
 }
 
 .inner {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-grow: 1;
     margin: 0.3rem 0;
   }

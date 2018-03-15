@@ -8,7 +8,7 @@ import SearchBar from './SearchBar/SearchBar.js';
 // import Modal from './Modal/Modal';
 // import EditContact from './EditContact/EditContact';
 
-
+// Add a function to sort contacts alphabetically
 
 class App extends Component {
   state = {

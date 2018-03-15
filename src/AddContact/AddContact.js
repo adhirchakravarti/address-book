@@ -30,16 +30,20 @@ class AddContact extends Component {
             <div className="FormContainer">
                 <p>Add New Contact</p>
                 <form className="AddContact" onSubmit={this.submit}>
-                    <label className="inputField">Name: 
-                        <input type="text" name="name" onChange={this.change} value={this.state.name} />
-                    </label>
-                    <label className="inputField">Phone: 
-                        <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
-                    </label>
-                    <label className="inputField">Email: 
-                        <input type="text" name="email" onChange={this.change} value={this.state.email} />
-                    </label>
-                    <input className="AddContactButton" type="submit" value="Submit" />
+                    <div className="inputContainer">
+                        <label className="inputField">Name: 
+                            <input type="text" name="name" onChange={this.change} value={this.state.name} />
+                        </label>
+                        <label className="inputField">Phone: 
+                            <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
+                        </label>
+                        <label className="inputField">Email: 
+                            <input type="text" name="email" onChange={this.change} value={this.state.email} />
+                        </label>
+                    </div>
+                    <div className="buttonContainer">
+                        <input className="AddContactButton" type="submit" value="Add" />
+                    </div>
                 </form>
             </div>
         );

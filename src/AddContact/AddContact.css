@@ -1,58 +1,87 @@
 .AddContact {
-    display:grid;
-    grid-template-columns: 31% 31% 31% 7%;
+    /* display:grid;
+    grid-template-columns: 31% 31% 31% 7%; */
     /* display: flex;
     flex-flow: row wrap; */
     text-align: center;
-    padding: 0.8rem;
 }
 
-.AddContact:after {
+/* Not sure what the following code does */
+/* .AddContact:after {
     content: "";
     display: table;
     clear: both;
+} */
+
+.inputContainer {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .inputField {
-    float: left;
+    /* float: left; */
+    padding-left:1rem;
+    flex-grow:1;
+    flex-shrink:1;
+}
+
+.buttonContainer {
+    padding-top:1rem;
 }
 
 .AddContactButton{
-    float:right;
+    /* float: right; */
+    
     text-align: center;
 }
 
 .FormContainer {
     background-color: #ecf0f1;
     border:1px solid #95a5a6;
-    padding: 1rem;
+    padding: 0.5rem;
     margin:1rem auto;
-    width:70%;
+    
     font-weight: bold;
 }
 
-@media (min-width:500px) and (min-height:400px) {
+@media (min-width:300px) {
+    .FormContainer {
+        width: 200px;
+        
+    }
+}
+
+@media (min-width:400px) {
+    .FormContainer {
+        width: 250px;
+        
+    }
+}
+
+@media (min-width:500px) {
     .FormContainer {
         width: 350px;
         
     }
 }
 
-@media (min-width:700px) and (min-height:401px) {
+@media (min-width:700px) {
     .FormContainer {
         width: 450px;
         
     }
 }
 
-@media (min-width:1000px) and (min-height:700px) {
+@media (min-width:1000px)  {
     .FormContainer {
         width: 800px;
 
     }
 }
 
-@media (min-width:1300px) and (min-height:700px) {
+@media (min-width:1300px) {
     .FormContainer {
         width: 1000px;
 
