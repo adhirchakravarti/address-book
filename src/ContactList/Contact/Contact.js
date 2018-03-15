@@ -104,9 +104,9 @@ class Contact extends Component {
             <Aux>
                 <div>
                     <div className="ContactRow">
-                        <div className="ContactColumn">Name:{this.props.name}</div>
-                        <div className="ContactColumn">Phone:{this.props.phone}</div>
-                        <div className="ContactColumn">Email:{this.props.email}</div>
+                        <div className="ContactColumn">Name: {this.props.name}</div>
+                        <div className="ContactColumn">Phone: {this.props.phone}</div>
+                        <div className="ContactColumn">Email: {this.props.email}</div>
                         <input type="button" className="ContactButton"
                         onClick={this.props.remove} value="x"/>
                         <input type="button" className="EditButton"
