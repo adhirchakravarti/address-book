@@ -110,7 +110,7 @@ class Contact extends Component {
                         <input type="button" className="ContactButton"
                         onClick={this.props.remove} value="x"/>
                         <input type="button" className="EditButton"
-                        onClick={this.displayModalHandler} value="E"/>
+                        onClick={this.displayModalHandler} value="e"/>
                     </div>
                     {/* {editForm} */} 
                 </div>
