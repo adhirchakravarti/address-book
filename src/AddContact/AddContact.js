@@ -27,24 +27,30 @@ class AddContact extends Component {
 
     render() {
         return (
-            <div className="FormContainer">
-                <p>Add New Contact</p>
-                <form className="AddContact" onSubmit={this.submit}>
-                    <div className="inputContainer">
-                        <label className="inputField">Name: 
-                            <input type="text" name="name" onChange={this.change} value={this.state.name} />
-                        </label>
-                        <label className="inputField">Phone: 
-                            <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
-                        </label>
-                        <label className="inputField">Email: 
-                            <input type="text" name="email" onChange={this.change} value={this.state.email} />
-                        </label>
-                    </div>
-                    <div className="buttonContainer">
-                        <input className="AddContactButton" type="submit" value="Add" />
-                    </div>
-                </form>
+            <div className="container">
+                <div className="AddContact">
+                    <p>Add New Contact</p>
+                    <form onSubmit={this.submit}>
+                        <div className="row align-items-center">
+                            <div className="form-group col-xs-3 col-md-3">
+                                <input className="form-control" type="text" placeholder="Name"
+                                 name="name" onChange={this.change} value={this.state.name} />
+                            </div>
+                            <div className="form-group col-xs-3 col-md-3">
+                                <input className="form-control" type="text" placeholder="Phone"
+                                 name="phone" onChange={this.change} value={this.state.phone} />
+                            </div>    
+                            <div className="form-group col-xs-3 col-md-3"> 
+                                <input className="form-control" type="text" placeholder="Email"
+                                 name="email" onChange={this.change} value={this.state.email} />
+                            </div>   
+                            <div className="form-group col-xs-2 col-md-2">
+                                <input className="btn" type="submit" value="Add Contact" />
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
             </div>
         );
     }

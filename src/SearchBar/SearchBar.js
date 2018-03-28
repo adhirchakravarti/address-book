@@ -45,14 +45,18 @@ class SearchBar extends Component {
     render(){
         return (
             <div className="SearchBar">
-                <form className="SearchContact" onSubmit={this.submit}>
-                    <label>Search:
-                        <input type="text"
-                        onChange={this.change} placeholder="Search Contact.." name="search" value={this.state.query}/>
-                    </label>
-                    <input type="submit" value="Submit" />
-                    <input type="button" onClick={this.resetHandler} value="Reset" />
-                </form>
+                <div className="row">
+                    <form className="form-inline" onSubmit={this.submit}>
+                        <div className="form-group">
+                            {/* <label>Search:</label> */}
+                            <input className="form-control" type="text"
+                                onChange={this.change} placeholder="Search Contact.."
+                                name="search" value={this.state.query}/>
+                            <input className="btn btn-default" type="submit" value="Submit" />
+                            <input className="btn btn-default" type="button" onClick={this.resetHandler} value="Reset" />
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

@@ -1,17 +1,10 @@
 .AddContact {
-    /* display:grid;
-    grid-template-columns: 31% 31% 31% 7%; */
-    /* display: flex;
-    flex-flow: row wrap; */
     text-align: center;
-}
-
-/* Not sure what the following code does */
-/* .AddContact:after {
-    content: "";
-    display: table;
-    clear: both;
-} */
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin:30px auto;
+    width: 100%;
+  }
 
 .inputContainer {
     display: inline-flex;

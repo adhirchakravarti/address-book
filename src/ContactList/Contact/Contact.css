@@ -1,140 +1,55 @@
 
 
 .ContactRow {
-    width:75%;
-    /* height: 1.5rem; */
-    /* font-size: 0.85rem; */
+    text-align: center;
     margin: 10px auto;
-    border: 2px solid #eee;
+    /* border: 2px solid #eee; */
     box-shadow: 0 2px 3px #ccc;
     padding: 10px;
     display: grid;
     grid-template-columns: 31% 30% 31% 4% 4%;
     justify-items: stretch;
-    /* grid-column-gap: 5px; */
-    /* grid-template-columns: 2fr 2fr 2fr 0.1fr fraction */
-    /* display: flex;
-    flex-flow: row nowrap; */
-};
-
-/* Not sure what the following code does */
-.ContactRow:after {
-    content: "";
-    display: table;
-    clear: both;
+    align-items: center;
+    box-shadow:0 2px 3px rgb(26, 25, 25);
 }
 
 .ContactColumn {
     /* float: left; */
     /* flex-grow:1;
     flex-shrink:1; */
-    justify-self: center;
+    align-self: center;
 }
 
-.ContactButton {
+.ContactColumn button {
+    border-radius: 50%;
+}
+
+.ContactColumn button:hover {
+    transform: scale(1.2);
+}
+
+/* .deleteButton {
     background-color: buttonface;
     border: 1px solid dimgrey;
-    /* size:1rem; */
-    box-shadow: 0 2px 3px #ccc;
-    text-align: center;
-    text-decoration: none;
-    /* float:right; */
-    font-size: inherit;
-    margin-left: 0.5rem;
-    border-radius: 50%;
-    /* height:1.5rem; */
     
+    border-radius: 50%;
 }
 
-.ContactButton:hover {
+.deleteButton:hover {
     background-color: #e67e22;
-    /* size: 2rem; */
-    transform: scale(1.2, 1.2);
+    transform: scale(1.2);
 }
 
-.EditButton {
+.editButton {
     background-color: buttonface;
     border: 1px solid dimgrey;
-    /* size:1rem; */
-    box-shadow: 0 2px 3px #ccc;
-    text-align: center;
-    text-decoration: none;
-    /* float:right; */
-    font-size: inherit;
-    margin-left: 0.5rem;
+   
     border-radius: 50%;
-    /* height:1.5rem; */
 }
 
-.EditButton:hover {
+.editButton:hover {
     background-color: #1abc9c;
-    /* size: 2rem; */
-    transform: scale(1.2, 1.2);
-}
+    
+    transform: scale(1.2);
+} */
 
-.EditRow {
-    margin:auto;
-    padding:20px;
-    display: inline;
-    font-size: 0.75rem;
-}
-
-@media (min-width:300px) {
-    .ContactRow {
-        width: 200px;
-        font-size: 0.55rem;
-    }
-    .ContactButton, .EditButton {
-        size:0.3rem;
-    }
-}
-
-@media (min-width:400px) {
-    .ContactRow {
-        width: 300px;
-        font-size: 0.60rem;
-    }
-    .ContactButton, .EditButton {
-        size:0.4rem;
-    }
-}
-
-@media (min-width:500px) {
-    .ContactRow {
-        width: 400px;
-        font-size: 0.60rem;
-    }
-    .ContactButton, .EditButton {
-        size:0.5rem;
-    }
-}
-
-@media (min-width:700px) {
-    .ContactRow {
-        width: 550px;
-        font-size: 0.70rem;
-    }
-    .ContactButton, .EditButton {
-        size:0.7rem;
-    }
-}
-
-@media (min-width:1000px)  {
-    .ContactRow {
-        width: 850px;
-        font-size: 0.70rem;
-    }
-    .ContactButton, .EditButton {
-        size:0.9rem;
-    }
-}
-
-@media (min-width:1300px) {
-    .ContactRow {
-        width: 1100px;
-        font-size: 0.85rem;
-    }
-    .ContactButton, .EditButton {
-        size:1rem;
-    }
-}

@@ -102,18 +102,20 @@ class Contact extends Component {
         // let editForm = this.state.editForm; // deprecated
         return (
             <Aux>
-                <div>
-                    <div className="ContactRow">
-                        <div className="ContactColumn">Name: {this.props.name}</div>
-                        <div className="ContactColumn">Phone: {this.props.phone}</div>
-                        <div className="ContactColumn">Email: {this.props.email}</div>
-                        <input type="button" className="ContactButton"
-                        onClick={this.props.remove} value="x"/>
-                        <input type="button" className="EditButton"
-                        onClick={this.displayModalHandler} value="e"/>
+                
+                <div className="ContactRow">
+                    <div className="ContactColumn">Name: {this.props.name}</div>
+                    <div className="ContactColumn">Phone: {this.props.phone}</div>
+                    <div className="ContactColumn">Email: {this.props.email}</div>
+                    <div className="ContactColumn">
+                        <button className="btn btn-danger" onClick={this.props.remove}>x</button>
                     </div>
-                    {/* {editForm} */} 
+                    <div className="ContactColumn">
+                        <button className="btn btn-default" onClick={this.displayModalHandler}>e</button>
+                    </div>
+                    
                 </div>
+                {/* {editForm} */}
                 <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
                     <EditContact cancel={this.hideModalHandler} save={this.save} name={this.state.name}/>
                 </Modal>

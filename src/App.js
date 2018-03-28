@@ -95,12 +95,20 @@ class App extends Component {
       let contacts = [...this.state.contacts];
       if (contacts.length > 0) {
           contactList = (
-            <ContactList
-            contacts = {contacts}
-            delete = {this.deleteContactHandler}
-            change = {this.editContactHandler}
-            
-            />
+            <div className="container">  
+              <div className="row">
+                <div className="col">  
+                  <div className="mainContainer">
+                    <ContactList
+                    contacts = {contacts}
+                    delete = {this.deleteContactHandler}
+                    change = {this.editContactHandler}
+                    
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           );
       }
     } else {
@@ -108,12 +116,20 @@ class App extends Component {
       let allContacts = [...this.state.contacts];
       //let displayedContacts = [];
        contactList = (
-        <ContactList
-        contacts = {this.state.contactsToDisplay}
-        delete = {this.deleteContactHandler}
-        change = {this.editContactHandler}
-        
-        />
+        <div className="container">  
+          <div className="row">
+            <div className="col">  
+              <div className="mainContainer">
+                <ContactList
+                contacts = {this.state.contactsToDisplay}
+                delete = {this.deleteContactHandler}
+                change = {this.editContactHandler}
+                
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       );
 
     }
