@@ -17,6 +17,10 @@
   justify-items: stretch;
 }
 
+.sortContainer .form-inline .form-group select {
+  margin-left: 10px;
+}
+
 .mainContainer {
   text-align: center;
   /* border: 2px solid #ccc ; */

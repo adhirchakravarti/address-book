@@ -6,15 +6,52 @@ import EditContact from '../../EditContact/EditContact';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Contact extends Component {
-    state = {
-        name:this.props.name,
-        phone:this.props.phone,
-        email:this.props.email,
-        index:this.props.index,
-        showModal: false
-    };
-
+    constructor( props ) {
+        super( props );
+        // console.log( '[Contact.js] Inside Constructor', props );
+        this.state = {
+            name:this.props.name,
+            phone:this.props.phone,
+            email:this.props.email,
+            index:this.props.index,
+            showModal: false
+        };
+    }
     
+    
+
+    componentWillReceiveProps ( nextProps ) {
+        // console.log( '[UPDATE Contact.js] Inside componentWillReceiveProps', nextProps );
+        if (this.props.name !== nextProps.name || this.props.phone !== nextProps.phone || this.props.email !== nextProps.email) {
+            this.setState({
+                name:nextProps.name,
+                phone:nextProps.phone,
+                email:nextProps.email,
+                index:nextProps.index
+            });
+        }
+    }
+
+    // shouldComponentUpdate ( nextProps, nextState ) {
+    //     console.log( '[UPDATE Contact.js] Inside shouldComponentUpdate', nextProps, nextState );
+    //     return nextProps.name !== this.props.name ||
+    //         nextProps.phone !== this.props.phone ||
+    //         nextProps.email !== this.props.email;
+    //     // return true;
+    // }
+
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     console.log( '[UPDATE Contact.js] Inside getDerivedStateFromProps', nextProps, prevState ); // never fired
+    // }
+
+    // componentWillUpdate ( nextProps, nextState ) {
+    //     console.log( '[UPDATE Contact.js] Inside componentWillUpdate', nextProps, nextState );
+    // }
+
+    // componentDidUpdate () {
+    //     console.log( '[UPDATE Contact.js] Inside componentDidUpdate' );
+    // }
+
     change = e => {
         e.preventDefault();
         //console.log(e.currentTarget);
@@ -105,6 +142,7 @@ class Contact extends Component {
 
     render() {
         // let editForm = this.state.editForm; // deprecated
+        // console.log( '[Contact.js] Inside render()' );
         return (
             <Aux>
                 
@@ -113,7 +151,7 @@ class Contact extends Component {
                     <div className="ContactColumn">Phone: {this.props.phone}</div>
                     <div className="ContactColumn">Email: {this.props.email}</div>
                     <div className="ContactColumn">
-                        <button className="btn btn-light" onClick={this.props.remove}><FontAwesomeIcon icon="trash-alt" size="lg" onClick={this.iconClickTest}/></button>
+                        <button className="btn btn-light" onClick={this.props.remove}><FontAwesomeIcon icon="trash-alt" size="lg" color="red" onClick={this.iconClickTest}/></button>
                     </div>
                     <div className="ContactColumn">
                         <button className="btn btn-light" onClick={this.displayModalHandler}><FontAwesomeIcon icon="pen-square" size="lg"/></button>

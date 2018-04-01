@@ -99,8 +99,8 @@ class App extends Component {
   sortContactHandler = (e) => {
     // contacts.sort(compareValues('phone', 'asc'))
     console.log(e.target.value);
-    const field = e.target.value;
-    if (this.state.contacts.length > 1) {
+    const field = e.target.value === 'default' ? null : e.target.value;
+    if (this.state.contacts.length > 1 && field !== null) {
       let contacts = [...this.state.contacts];
       contacts.sort(this.compareValues(field, 'asc'));
       console.log(contacts);
@@ -199,7 +199,7 @@ class App extends Component {
                 <div className="sortContainer">
                   <div className="form-inline">
                     <div className="form-group">
-                        <label>Sort By: </label>
+                        <label>Sort By:</label>
                         <select onChange={this.sortContactHandler} className="form-control" name="sort">
                             <option value="default">Choose</option>
                             <option name="name" value="name">Name</option> 
