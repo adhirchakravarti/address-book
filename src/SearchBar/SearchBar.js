@@ -8,10 +8,10 @@ class SearchBar extends Component {
 
     change = e => {
         e.preventDefault();
-        console.log(e.target.value);
+        //console.log(e.target.value);
         let input = e.target.value;
         this.setState({
-            query:input
+            query: input
         });
         console.log(this.state.query);
         // wanted to send the query object to the app component with this change, but it always sends one character less.
@@ -23,7 +23,7 @@ class SearchBar extends Component {
 
     submit = e => {
         e.preventDefault();
-        console.log(e.target.children[0].children[0].value);
+        //console.log(e.target.children[0].children[0].value);
         console.log(this.state);
         // this.setState({
         //     query:e.target.value
@@ -52,7 +52,7 @@ class SearchBar extends Component {
                             <input className="form-control" type="text"
                                 onChange={this.change} placeholder="Search Contact.."
                                 name="search" value={this.state.query}/>
-                            <input className="btn btn-default" type="submit" value="Submit" />
+                            <input className="btn btn-success" type="submit" value="Submit" />
                             <input className="btn btn-default" type="button" onClick={this.resetHandler} value="Reset" />
                         </div>
                     </form>
