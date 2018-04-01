@@ -39,17 +39,17 @@ class App extends Component {
   searchHandler = (queryObj) => {
     let contacts = [...this.state.contacts];
     //let results = [];
-    console.log("Query object: ",queryObj);
+    // console.log("Query object: ",queryObj);
     let foundContacts = [];
     contacts.forEach((el, index)=>{
-      let myRe = new RegExp(queryObj.query,"gi");
+      let myRe = new RegExp(queryObj,"gi");
       if ((el.name.search(myRe) !==-1) || (el.phone.search(myRe)!==-1) || (el.email.search(myRe)!==-1)) {
         //results.push(el.name.match(myRe));
         foundContacts.push(el);
       }
     })
     //console.log(results);
-    console.log("FoundContacts: ",foundContacts);
+    // console.log("FoundContacts: ",foundContacts);
     this.setState({
       contactsToDisplay:foundContacts
     });

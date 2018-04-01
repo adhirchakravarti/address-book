@@ -30,30 +30,41 @@ class EditContact extends Component {
         });
     }
 
+    canBeSubmitted = () => {
+        const { name, phone, email } = this.state;
+        if (
+          (name.length > 0) &&
+          (phone.length > 0) &&
+          (email.length > 0)
+        ) {
+            return true;
+        }
+      }
+
 
     render() {
+        const isValid = this.canBeSubmitted(); // to validate form
         return (
             <div className="outer">
-                <p><strong>Edit Contact: {this.props.name}</strong></p>
-                <div className="inner">
-                    <label >Name: 
-                        <input type="text" name="name" onChange={this.change} value={this.state.name} />
-                    </label>
-                </div>
-                <div className="inner">
-                    <label >Phone: 
-                        <input type="text" name="phone" onChange={this.change} value={this.state.phone} />
-                    </label>
-                </div>
-                <div className="inner">
-                    <label >Email: 
-                        <input type="text" name="email" onChange={this.change} value={this.state.email} />
-                    </label>
-                </div>
-                <div className="inner">
-                    <button onClick={this.save}>Save</button>
-                    <button onClick={this.props.cancel}>Cancel</button>
-                </div>
+                <form>
+                    <p><strong>Edit Contact: {this.props.name}</strong></p>
+                    <div className="form-group">
+                        <input type="text" class="form-control" name="name"
+                        onChange={this.change} value={this.state.name} placeholder="Name"/>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" class="form-control" name="phone" 
+                        onChange={this.change} value={this.state.phone} placeholder="Phone" />
+                    </div>
+                    <div className="form-group">
+                        <input type="email" class="form-control" name="email" 
+                        onChange={this.change} value={this.state.email} placeholder="Email"/>
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-primary" type="submit" disabled={!isValid} onClick={this.save}>Save</button>
+                        <button className="btn btn-default" type="button" onClick={this.props.cancel}>Cancel</button>
+                    </div>
+                </form>
             </div>
         );
     }

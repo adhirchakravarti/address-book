@@ -11,3 +11,7 @@
     flex-grow: 1;
     margin: 0.3rem 0;
   }
+
+.outer .form-group .btn {
+    margin-right:0.3rem;
+  }
