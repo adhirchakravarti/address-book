@@ -3,6 +3,7 @@ import './Contact.css';
 import Aux from '../../hoc/Aux';
 import Modal from '../../Modal/Modal';
 import EditContact from '../../EditContact/EditContact';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Contact extends Component {
     state = {
@@ -98,6 +99,10 @@ class Contact extends Component {
         });
       }
 
+      iconClickTest = () => {
+          console.log("icon clicked!");
+      }
+
     render() {
         // let editForm = this.state.editForm; // deprecated
         return (
@@ -108,10 +113,10 @@ class Contact extends Component {
                     <div className="ContactColumn">Phone: {this.props.phone}</div>
                     <div className="ContactColumn">Email: {this.props.email}</div>
                     <div className="ContactColumn">
-                        <button className="btn btn-danger" onClick={this.props.remove}>x</button>
+                        <button className="btn btn-light" onClick={this.props.remove}><FontAwesomeIcon icon="trash-alt" size="lg" onClick={this.iconClickTest}/></button>
                     </div>
                     <div className="ContactColumn">
-                        <button className="btn btn-default" onClick={this.displayModalHandler}>e</button>
+                        <button className="btn btn-light" onClick={this.displayModalHandler}><FontAwesomeIcon icon="pen-square" size="lg"/></button>
                     </div>
                     
                 </div>

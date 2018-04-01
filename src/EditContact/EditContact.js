@@ -49,15 +49,15 @@ class EditContact extends Component {
                 <form>
                     <p><strong>Edit Contact: {this.props.name}</strong></p>
                     <div className="form-group">
-                        <input type="text" class="form-control" name="name"
+                        <input type="text" className="form-control" name="name"
                         onChange={this.change} value={this.state.name} placeholder="Name"/>
                     </div>
                     <div className="form-group">
-                        <input type="text" class="form-control" name="phone" 
+                        <input type="text" className="form-control" name="phone" 
                         onChange={this.change} value={this.state.phone} placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        <input type="email" class="form-control" name="email" 
+                        <input type="email" className="form-control" name="email" 
                         onChange={this.change} value={this.state.email} placeholder="Email"/>
                     </div>
                     <div className="form-group">

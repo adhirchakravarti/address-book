@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { Component }  from 'react';
 //import './ContactList.css';
 import Contact from './Contact/Contact';
 
 
-const ContactList = (props) => props.contacts.map((element, index)=>{
-                return (
-                  <Contact 
-                    name={element.name}
-                    phone={element.phone}
-                    email={element.email}
-                    key={index}
-                    index={index}
-                    remove={()=>props.delete(index)}
-                    edit={props.change}
-                    edit2 = {props.change2}
-                    />
-                );
-              });
-
-              
-        
+class ContactList extends Component {
     
+  render() {
+      return this.props.contacts.map((element, index)=>{
+          return (
+            <Contact 
+              name={element.name}
+              phone={element.phone}
+              email={element.email}
+              key={index}
+              index={index}
+              remove={()=>this.props.delete(index)}
+              edit={this.props.change}
+              edit2 = {this.props.change2}
+              />
+          );
+      });
+    }
+}
 
 export default ContactList;

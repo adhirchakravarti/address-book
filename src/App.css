@@ -9,6 +9,13 @@
   overflow-x: hidden;
 }
 
+.sortContainer {
+  display:inline-flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: stretch;
+}
 
 .mainContainer {
   text-align: center;

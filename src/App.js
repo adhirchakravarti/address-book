@@ -5,15 +5,24 @@ import AddContact from './AddContact/AddContact';
 import ContactList from './ContactList/ContactList.js';
 import Cockpit from './Cockpit/Cockpit.js';
 import SearchBar from './SearchBar/SearchBar.js';
+import fontawesome from '@fortawesome/fontawesome';
+// eslint-disable-next-line
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faPenSquare from '@fortawesome/fontawesome-free-solid/faPenSquare';
+import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
 // import Modal from './Modal/Modal';
 // import EditContact from './EditContact/EditContact';
+fontawesome.library.add(faPenSquare, faTrashAlt);
 
 // Add a function to sort contacts alphabetically
+
+
 
 class App extends Component {
   state = {
     contacts:[],
-    contactsToDisplay:[]
+    contactsToDisplay:[],
+    sortBy:''
   };
   
   addContactHandler = (newContact) => {
@@ -79,14 +88,53 @@ class App extends Component {
     //console.log(form);
     console.log(editedContact);
     //console.log(contactObj);
-    console.log("before: ",contacts);
+    // console.log("before: ",contacts);
     contacts.splice(ind,1, editedContact);
-    console.log("after: ",contacts);
+    // console.log("after: ",contacts);
     this.setState({
       contacts:contacts
     });
   }
   
+  sortContactHandler = (e) => {
+    // contacts.sort(compareValues('phone', 'asc'))
+    console.log(e.target.value);
+    const field = e.target.value;
+    if (this.state.contacts.length > 1) {
+      let contacts = [...this.state.contacts];
+      contacts.sort(this.compareValues(field, 'asc'));
+      console.log(contacts);
+      this.setState({
+        contacts: contacts
+      });
+    }
+    
+  }
+
+  compareValues = (key, order='asc') => {
+    return function(a, b) {
+        if(!a.hasOwnProperty(key) || 
+          !b.hasOwnProperty(key)) {
+          return 0; 
+        }
+        
+        const varA = (typeof a[key] === 'string') ? 
+          a[key].toUpperCase() : a[key];
+        const varB = (typeof b[key] === 'string') ? 
+          b[key].toUpperCase() : b[key];
+          
+        let comparison = 0;
+        if (varA > varB) {
+          comparison = 1;
+        } else if (varA < varB) {
+          comparison = -1;
+        }
+        return (
+          (order === 'desc') ? 
+          (comparison * -1) : comparison
+        );
+    };
+  }
 
 
   renderContacts = () => {
@@ -96,8 +144,8 @@ class App extends Component {
       if (contacts.length > 0) {
           contactList = (
             <div className="container">  
-              <div className="row">
-                <div className="col">  
+              
+                  
                   <div className="mainContainer">
                     <ContactList
                     contacts = {contacts}
@@ -106,8 +154,8 @@ class App extends Component {
                     
                     />
                   </div>
-                </div>
-              </div>
+                
+              
             </div>
           );
       }
@@ -117,8 +165,8 @@ class App extends Component {
       //let displayedContacts = [];
        contactList = (
         <div className="container">  
-          <div className="row">
-            <div className="col">  
+          
+             
               <div className="mainContainer">
                 <ContactList
                 contacts = {this.state.contactsToDisplay}
@@ -127,8 +175,8 @@ class App extends Component {
                 
                 />
               </div>
-            </div>
-          </div>
+            
+          
         </div>
       );
 
@@ -144,7 +192,26 @@ class App extends Component {
       <div className="App">
         <Cockpit/>
         <SearchBar onType={(query)=>this.searchHandler(query)} onClear={this.resetHandler}/>
-        <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/> 
+        <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/>
+        <div className="container">
+          <div className="row">
+              <div className="col-6">
+                <div className="sortContainer">
+                  <div className="form-inline">
+                    <div className="form-group">
+                        <label>Sort By: </label>
+                        <select onChange={this.sortContactHandler} className="form-control" name="sort">
+                            <option value="default">Choose</option>
+                            <option name="name" value="name">Name</option> 
+                            <option name="phone" value="phone">Phone</option>
+                            <option name="email" value="email">Email</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div> 
         {/* <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
             <EditContact cancel={this.hideModalHandler} edit={this.editContactHandler}/>
         </Modal> */}
