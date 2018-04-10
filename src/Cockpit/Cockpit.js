@@ -16,7 +16,7 @@ const Cockpit = (props) => {
                 </div>
                 <div className="row">
                 <div className="box2">
-                    <h2 className="Cockpit-title">Angular Address-Book</h2>
+                    <h2 className="Cockpit-title">React Address-Book</h2>
                 </div>
                 </div>
             </div>
