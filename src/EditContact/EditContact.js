@@ -6,7 +6,9 @@ class EditContact extends Component {
     state = {
         name:'',
         phone:'',
-        email:''
+        email:'',
+        organization:'',
+        notes:''
     };
     
     change = (e) => {
@@ -26,7 +28,9 @@ class EditContact extends Component {
         this.setState({
             name:'',
             phone:'',
-            email:''
+            email:'',
+            organization:'',
+            notes:''
         });
     }
 
@@ -59,6 +63,14 @@ class EditContact extends Component {
                     <div className="form-group">
                         <input type="email" className="form-control" name="email" 
                         onChange={this.change} value={this.state.email} placeholder="Email"/>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control" name="organization" 
+                        onChange={this.change} value={this.state.organization} placeholder="Organization"/>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control" name="notes" 
+                        onChange={this.change} value={this.state.notes} placeholder="Notes / Comments"/>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary" type="submit" disabled={!isValid} onClick={this.save}>Save</button>

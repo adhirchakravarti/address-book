@@ -1,55 +1,12 @@
-
-
-.ContactRow {
-    text-align: center;
-    margin: 10px auto;
-    /* border: 2px solid #eee; */
-    box-shadow: 0 2px 3px #ccc;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 31% 30% 31% 4% 4%;
-    justify-items: stretch;
-    align-items: center;
-    box-shadow:0 2px 3px rgb(26, 25, 25);
-}
-
-.ContactColumn {
-    /* float: left; */
-    /* flex-grow:1;
-    flex-shrink:1; */
-    align-self: center;
-}
-
-.ContactColumn button {
+.list-group-item .float-right button {
     border-radius: 50%;
 }
-
-.ContactColumn button:hover {
-    transform: scale(1.2);
-}
-
-/* .deleteButton {
-    background-color: buttonface;
-    border: 1px solid dimgrey;
+  
+.list-group-item .float-right button:hover {
+    transform: scale(1.1);
     
-    border-radius: 50%;
+}  
+
+.list-group-item .float-left {
+    text-align: unset !important;
 }
-
-.deleteButton:hover {
-    background-color: #e67e22;
-    transform: scale(1.2);
-}
-
-.editButton {
-    background-color: buttonface;
-    border: 1px solid dimgrey;
-   
-    border-radius: 50%;
-}
-
-.editButton:hover {
-    background-color: #1abc9c;
-    
-    transform: scale(1.2);
-} */
-

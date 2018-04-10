@@ -31,16 +31,22 @@ class ContactList extends Component {
     // console.log( '[ContactList.js] Inside render()' );  
     return this.props.contacts.map((element, index)=>{
           return (
-            <Contact 
-              name={element.name}
-              phone={element.phone}
-              email={element.email}
-              key={index}
-              index={index}
-              remove={()=>this.props.delete(index)}
-              edit={this.props.change}
-              edit2 = {this.props.change2}
-              />
+            
+             
+              <Contact 
+                name={element.name}
+                phone={element.phone}
+                email={element.email}
+                organization={element.organization}
+                notes={element.notes}
+                key={index}
+                index={index}
+                remove={()=>this.props.delete(index)}
+                edit={this.props.change}
+                edit2 = {this.props.change2}
+                />
+              
+            
           );
       });
     }

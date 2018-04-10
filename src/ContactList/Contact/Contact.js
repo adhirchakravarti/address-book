@@ -3,6 +3,7 @@ import './Contact.css';
 import Aux from '../../hoc/Aux';
 import Modal from '../../Modal/Modal';
 import EditContact from '../../EditContact/EditContact';
+import ContactDetail from './ContactDetail/ContactDetail';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Contact extends Component {
@@ -13,8 +14,11 @@ class Contact extends Component {
             name:this.props.name,
             phone:this.props.phone,
             email:this.props.email,
+            organization:this.props.organization,
+            notes:this.props.notes,
             index:this.props.index,
-            showModal: false
+            showModal: false,
+            showDetail: false
         };
     }
     
@@ -22,11 +26,15 @@ class Contact extends Component {
 
     componentWillReceiveProps ( nextProps ) {
         // console.log( '[UPDATE Contact.js] Inside componentWillReceiveProps', nextProps );
-        if (this.props.name !== nextProps.name || this.props.phone !== nextProps.phone || this.props.email !== nextProps.email) {
+        if (this.props.name !== nextProps.name || this.props.phone !== nextProps.phone ||
+            this.props.email !== nextProps.email || this.props.organization !== nextProps.organization 
+            || this.props.notes !== nextProps.notes) {
             this.setState({
                 name:nextProps.name,
                 phone:nextProps.phone,
                 email:nextProps.email,
+                organization:nextProps.organization,
+                notes:nextProps.notes,
                 index:nextProps.index
             });
         }
@@ -83,6 +91,8 @@ class Contact extends Component {
             name: contactObj.name,
             phone: contactObj.phone,
             email: contactObj.email,
+            organization: contactObj.organization,
+            notes: contactObj.notes,
             showModal: false
         });
         // console.log(this.state);
@@ -91,39 +101,7 @@ class Contact extends Component {
     }
 
     
-    // This function is deprecated and no longer used
-
-    // editContact = () => {
-    //     let editForm = (
-    //         <form className="EditRow" onSubmit={this.save}>
-    //             <label className="EditColumn">Name:
-    //                 <input type="text" name="name"  onChange={this.change}/>
-    //             </label>
-    //             <label className="EditColumn">Phone:
-    //                 <input type="text" name="phone"  onChange={this.change}/>
-    //             </label>
-    //             <label className="EditColumn">Email:
-    //                 <input type="text" name="email"  onChange={this.change}/>
-    //             </label>
-    //             <input type="submit" className="SaveButton"
-    //                 value="Save"/>
-    //         </form>
-    //     );
-    //     let noEditForm = <div></div>;
-    //     if (this.state.showEditForm === false) {
-    //         this.setState({
-    //             editForm:editForm,
-    //             showEditForm: true
-    //         });
-    //     } else {
-    //         this.setState({
-    //             editForm:noEditForm,
-    //             showEditForm:false
-    //         });
-    //     }
-        
-    // }
-
+    
     displayModalHandler = () => {
         this.setState({
           showModal:true
@@ -140,13 +118,42 @@ class Contact extends Component {
           console.log("icon clicked!");
       }
 
+      showDetailHandler = () => {
+        if (this.state.showDetail === false) {
+            this.setState({showDetail: true});
+        } else {
+            this.setState({showDetail: false});
+        }
+      }
+
     render() {
         // let editForm = this.state.editForm; // deprecated
         // console.log( '[Contact.js] Inside render()' );
         return (
             <Aux>
-                
-                <div className="ContactRow">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="col-8 float-left">
+                            <div className="list-group-item clearfix">
+                                <div className="float-left">
+                                    <h4 className="list-group-item-heading">{this.props.name}</h4>
+                                    <h6 className="list-group-item-text">Phone: {this.props.phone}</h6>
+                                    <h6 className="list-group-item-text">Email: {this.props.email}</h6>
+                                </div>
+                                <div className="float-right">
+                                    <button className="btn btn-light" onClick={this.props.remove}><FontAwesomeIcon icon="trash-alt"/></button>
+                                    <button className="btn btn-light" onClick={this.displayModalHandler}><FontAwesomeIcon icon="edit"/></button>
+                                    <button className="btn btn-light" onClick={this.showDetailHandler}><FontAwesomeIcon icon={this.state.showDetail? "chevron-left": "chevron-right"}/></button>
+                                    {/* <button className="btn btn-light"><FontAwesomeIcon icon="fas fa-chevron-left"/>></button> */}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-4 float-right">
+                            <ContactDetail show={this.state.showDetail} contact={this.state}></ContactDetail>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className="ContactRow">
                     <div className="ContactColumn">Name: {this.props.name}</div>
                     <div className="ContactColumn">Phone: {this.props.phone}</div>
                     <div className="ContactColumn">Email: {this.props.email}</div>
@@ -157,7 +164,7 @@ class Contact extends Component {
                         <button className="btn btn-light" onClick={this.displayModalHandler}><FontAwesomeIcon icon="pen-square" size="lg"/></button>
                     </div>
                     
-                </div>
+                </div> */}
                 {/* {editForm} */}
                 <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
                     <EditContact cancel={this.hideModalHandler} save={this.save} name={this.state.name}/>
@@ -167,22 +174,6 @@ class Contact extends Component {
     }
 }
 
-/*
-const Contact = (props) => {
-    
-    return (
-        <div className="ContactRow">
-            <div className="ContactColumn">Name:{props.name}</div>
-            <div className="ContactColumn">Phone:{props.phone}</div>
-            <div className="ContactColumn">Email:{props.email}</div>
-            <input type="button" className="ContactButton"
-            onClick={props.remove} value="x"/>
-            <input type="button" className="EditButton"
-             value="Edit"/>
-        </div>
-    );
-};
-*/
 
 export default Contact;
 

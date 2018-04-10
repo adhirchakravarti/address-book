@@ -9,16 +9,17 @@ class SearchBar extends Component {
     change = e => {
         e.preventDefault();
         //console.log(e.target.value);
-        let input = e.target.value;
+        let input = '';
+        if (e.target.value.length > 0) {
+            input = e.target.value;
+            this.props.onType(input);
+        } else if (e.target.value.length === 0) {
+            // this.resetHandler();
+            this.props.onClear();
+        }
         this.setState({
             query: input
         });
-        // console.log(this.state.query);
-        // wanted to send the query object to the app component with this change, but it always sends one character less.
-        // if (this.state.query !== ''){
-        //     this.props.onType(this.state);
-        // }
-        this.props.onType(input);
     }
 
     
@@ -40,7 +41,7 @@ class SearchBar extends Component {
         // this.setState({
         //     query:''
         // });
-        console.log(this.state);
+        // console.log(this.state);
         this.props.onClear();
     }
 
@@ -51,6 +52,7 @@ class SearchBar extends Component {
     }
 
     render(){
+        // eslint-disable-next-line
         const isValid = this.canbeSubmitted();
         return (
             <div className="SearchBar">
@@ -61,8 +63,8 @@ class SearchBar extends Component {
                             <input className="form-control" type="text"
                                 onChange={this.change} placeholder="Search Contact.."
                                 name="search" value={this.state.query}/>
-                            <input className="btn btn-success" type="submit" disabled={!isValid} value="Submit" />
-                            <input className="btn btn-default" type="button" onClick={this.resetHandler} value="Reset" />
+                            {/* <input className="btn btn-success" type="submit" disabled={!isValid} value="Submit" />
+                            <input className="btn btn-default" type="button" onClick={this.resetHandler} value="Reset" /> */}
                         </div>
                     </form>
                 </div>

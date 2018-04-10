@@ -9,10 +9,13 @@ import fontawesome from '@fortawesome/fontawesome';
 // eslint-disable-next-line
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faPenSquare from '@fortawesome/fontawesome-free-solid/faPenSquare';
-import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
+//import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
+import {faTrashAlt, faEdit, faChevronRight, faChevronLeft, faUser, faUserPlus,
+  faBuilding, faStickyNote, faAddressBook, faAddressCard, faAt, faPhone} from '@fortawesome/fontawesome-free-solid';
 // import Modal from './Modal/Modal';
 // import EditContact from './EditContact/EditContact';
-fontawesome.library.add(faPenSquare, faTrashAlt);
+fontawesome.library.add(faPenSquare, faEdit, faTrashAlt, faChevronLeft, faPhone,
+  faUser, faBuilding, faAddressBook, faAddressCard, faAt, faChevronRight, faStickyNote, faUserPlus);
 
 // Add a function to sort contacts alphabetically
 
@@ -29,9 +32,9 @@ class App extends Component {
     //event.preventDefault();
     //console.log(event.target[0].value);
     //console.log(event.target.name.value);
-    
+    // console.log(newContact);
     let contacts = [...this.state.contacts];
-    if (newContact.name.length>0 && newContact.phone.length>0 && newContact.email.length>0){
+    if (newContact.name.length>0 && newContact.phone.length>0 && newContact.email.length>0 && newContact.organization.length>0){
       
       contacts.push(newContact);
       console.log("contacts: ", contacts);
@@ -144,8 +147,8 @@ class App extends Component {
       if (contacts.length > 0) {
           contactList = (
             <div className="container">  
-              
-                  
+              <div className="row">
+                <div className="col-12">  
                   <div className="mainContainer">
                     <ContactList
                     contacts = {contacts}
@@ -154,28 +157,29 @@ class App extends Component {
                     
                     />
                   </div>
-                
-              
+                </div>
+              </div>
             </div>
           );
       }
     } else {
       // eslint-disable-next-line
-      let allContacts = [...this.state.contacts];
+      let contactsToDisplay = [...this.state.contactsToDisplay];
       //let displayedContacts = [];
        contactList = (
         <div className="container">  
-          
-             
+          <div className="row">
+            <div className="col-12">
               <div className="mainContainer">
                 <ContactList
-                contacts = {this.state.contactsToDisplay}
+                contacts = {contactsToDisplay}
                 delete = {this.deleteContactHandler}
                 change = {this.editContactHandler}
                 
                 />
               </div>
-            
+            </div>
+          </div>
           
         </div>
       );
