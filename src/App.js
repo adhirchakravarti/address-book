@@ -5,6 +5,7 @@ import AddContact from './AddContact/AddContact';
 import ContactList from './ContactList/ContactList.js';
 import Cockpit from './Cockpit/Cockpit.js';
 import SearchBar from './SearchBar/SearchBar.js';
+import SortContact from './SortContact/SortContact';
 import fontawesome from '@fortawesome/fontawesome';
 // eslint-disable-next-line
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -99,10 +100,10 @@ class App extends Component {
     });
   }
   
-  sortContactHandler = (e) => {
+  sortContactHandler = (selectedValue) => {
     // contacts.sort(compareValues('phone', 'asc'))
-    console.log(e.target.value);
-    const field = e.target.value === 'default' ? null : e.target.value;
+    // console.log(selectedValue);
+    const field = selectedValue === 'default' ? null : selectedValue;
     if (this.state.contacts.length > 1 && field !== null) {
       let contacts = [...this.state.contacts];
       contacts.sort(this.compareValues(field, 'asc'));
@@ -197,28 +198,7 @@ class App extends Component {
         <Cockpit/>
         <SearchBar onType={(query)=>this.searchHandler(query)} onClear={this.resetHandler}/>
         <AddContact onAdd={(newContact)=>this.addContactHandler(newContact)}/>
-        <div className="container">
-          <div className="row">
-              <div className="col-6">
-                <div className="sortContainer">
-                  <div className="form-inline">
-                    <div className="form-group">
-                        <label>Sort By:</label>
-                        <select onChange={this.sortContactHandler} className="form-control" name="sort">
-                            <option value="default">Choose</option>
-                            <option name="name" value="name">Name</option> 
-                            <option name="phone" value="phone">Phone</option>
-                            <option name="email" value="email">Email</option>
-                        </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div> 
-        {/* <Modal show={this.state.showModal} modalClosed={this.hideModalHandler}>
-            <EditContact cancel={this.hideModalHandler} edit={this.editContactHandler}/>
-        </Modal> */}
+        <SortContact onSelect={this.sortContactHandler}></SortContact>
         {contactList}
       </div>
     );
