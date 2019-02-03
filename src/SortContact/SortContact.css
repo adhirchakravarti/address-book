@@ -1,0 +1,12 @@
+.sortContainer {
+    display:inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: stretch;
+    width: 100%;
+  }
+  
+  .sortContainer .form-inline .form-group select {
+    margin-left: 10px;
+  }

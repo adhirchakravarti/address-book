@@ -1,0 +1,43 @@
+.AddContact {
+    /* text-align: center; */
+    /* border: 2px solid #ccc ; */
+    /* padding: 20px; */
+    margin:0px 0px !important;
+    padding: 0px !important;
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    /* justify-content: center; */
+    background-color: rgba(0, 116, 217, 1.0) !important;
+    color:white;
+}
+
+.card-header span {
+    margin-right:5px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0px !important;
+}
+
+/* .form-group .input-group {
+    padding-top: 17px;
+} */
+
+.row .form-group {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.AddContactContainer .row .col-12 {
+    padding: 0px 0px !important;
+}
+.AddContactContainer {
+    height: 100%;
+    width: 100%;
+}

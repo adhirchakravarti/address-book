@@ -1,0 +1,23 @@
+.SearchBar {
+    /*margin:auto;*/
+    padding:20px;
+    /* font-weight: bold; */
+    /*display: inline;*/
+    text-align: center;
+    width: 50%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.SearchBar form.form-inline,
+.SearchBar form.form-inline div.form-group,
+.SearchBar form.form-inline div.form-group div.input-group {
+    width: 100% !important;
+}
+
+button {
+    background-color: buttonface;
+}

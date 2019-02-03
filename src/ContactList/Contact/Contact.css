@@ -1,0 +1,12 @@
+.list-group-item .float-right button {
+    border-radius: 50%;
+}
+  
+.list-group-item .float-right button:hover {
+    transform: scale(1.1);
+    
+}  
+
+.list-group-item .float-left {
+    text-align: unset !important;
+}
