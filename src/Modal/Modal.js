@@ -11,8 +11,8 @@ const modal = (props) => (
             style={{
                 transform: props.show? 'translateY(0)' : 'translateY(-100vh)',
                 opacity: props.show? '1' : '0',
-                height: props.height? props.height:'auto',
-                width: props.width? props.width:'auto',
+                // height: props.height? props.height:'auto',
+                // width: props.width? props.width:'auto',
                 top: props.top? props.top : 'auto !important',
                 left: props.left? props.left: 'auto !important'
             }}>

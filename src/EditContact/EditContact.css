@@ -4,12 +4,18 @@
     align-items: center;
     /* padding:0.5rem 0rem; */
     justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 .inner {
-    display: flex;
-    flex-grow: 1;
-    margin: 0.3rem 0;
+    display: block;
+    /* flex-grow: 1; */
+    /* margin: 0.3rem 0; */
+    /* padding: 0px 0px !important; */
+    line-height: 1;
+    width: 100%;
+    height: 100%;
   }
 
 .outer .form-group .btn {
@@ -38,8 +44,13 @@
     margin-bottom: 0.3rem;
 }
 
-.outer .row .col-12 {
+.outer .inner .col-12 {
     padding: 0px 0px !important;
+    width: 100%;
+    height: 100%;
+}
+.outer .row {
+    margin:0px 0px !important;
 }
 
 /* .outer .row .col-12 .row .form-group {

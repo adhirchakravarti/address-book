@@ -51,7 +51,7 @@ class EditContact extends Component {
         const isValid = this.canBeSubmitted(); // to validate form
         return (
             <div className="outer">
-                <div className="row">
+                <div className="inner">
                     <div className="col-12">
                         <div className="editContactContainer">
                             <div className="card-header">

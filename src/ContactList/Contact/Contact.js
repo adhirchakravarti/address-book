@@ -118,8 +118,8 @@ class Contact extends Component {
         console.log(window.screen.width, window.screen.height);
         console.log(window.innerWidth, window.innerHeight);
         if (modalChildHeight !== undefined && modalChildWidth !== undefined) {
-            console.log("(modal width / screenwidth) / 2 * 100 ", (((modalChildWidth / window.screen.width)/2)*100));
-            console.log("(modal height / screenheight) / 2 * 100 ", (((modalChildHeight / window.screen.height)/2)*100));
+            console.log("(modal width / screenwidth) / 2 * 100 ", (((modalChildWidth / window.innerWidth)/2)*100));
+            console.log("(modal height / screenheight) / 2 * 100 ", (((modalChildHeight / window.innerHeight)/2)*100));
             let modalLeft = Math.round(50 - (((modalChildWidth / window.innerWidth)/2)*100)) + '%';
             let modalTop = Math.round(50 - (((modalChildHeight / window.innerHeight)/2)*100)) + '%';
             console.log(modalLeft, modalTop);

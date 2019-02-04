@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto 0px !important;
+    /* margin: auto 0px !important; */
 }
 
 /* .form-group .input-group {
@@ -34,7 +34,7 @@
     flex-shrink: 1;
 }
 
-.AddContactContainer .row .col-12 {
+.AddContactContainer .col-12 {
     padding: 0px 0px !important;
 }
 .AddContactContainer {
