@@ -1,12 +1,13 @@
 .sortContainer {
     display:inline-flex;
-    flex-flow: column;
+    flex-direction: row;
+    padding:10px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-items: stretch;
     width: 100%;
   }
   
-  .sortContainer .form-inline .form-group select {
+  /* .sortContainer .form-inline .form-group select {
     margin-left: 10px;
-  }
+  } */

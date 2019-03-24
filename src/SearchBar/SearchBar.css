@@ -1,17 +1,15 @@
 .SearchBar {
-    /*margin:auto;*/
-    padding:20px;
-    /* font-weight: bold; */
-    /*display: inline;*/
+    padding-top:10px;
+    display: flex;
     text-align: center;
-    width: 50%;
+    /* width: 50%; */
 }
 
-.row {
+/* .row {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 .SearchBar form.form-inline,
 .SearchBar form.form-inline div.form-group,
 .SearchBar form.form-inline div.form-group div.input-group {

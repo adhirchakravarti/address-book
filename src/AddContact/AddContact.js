@@ -1,23 +1,42 @@
 // Use at a later stage
 import React, { Component } from 'react';
 import './AddContact.css';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class AddContact extends Component {
-    state = {
-        name: "",
-        phone: "",
-        email: "",
-        organization: "",
-        notes: "",
-        isValid: false
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "",
+            phone: "",
+            email: "",
+            organization: "",
+            notes: "",
+            isValid: false
+        }
+        this.cancel = this.cancel.bind(this);
+        this.submit = this.submit.bind(this);
+        this.change = this.change.bind(this);
+    }
+    
+
+    cancel = () => {
+        this.setState(()=>{
+            return {
+                name: "",
+                phone: "",
+                email: "",
+                organization: "",
+                notes: "",
+                isValid: false
+            }
+        })
+        this.props.cancel();
     }
 
     submit = e => {
         e.preventDefault();
         const {isValid: valid,...sentContact} = this.state;
-        // console.log(sentContact);
-        // console.log(valid);
         this.props.onAdd(sentContact);
         this.setState({
             name: "",
@@ -49,30 +68,6 @@ class AddContact extends Component {
         const isValid = this.canBeSubmitted(); // to validate form
         return (
             <div className="AddContactContainer">
-                {/* <div classNameName="AddContact">
-                    <p>Add New Contact</p>
-                    <form onSubmit={this.submit}>
-                        <div className="row align-items-center">
-                            <div className="form-group col-xs-3 col-md-3">
-                                <input className="form-control" type="text" placeholder="Name"
-                                 name="name" onChange={this.change} value={this.state.name} />
-                            </div>
-                            <div className="form-group col-xs-3 col-md-3">
-                                <input className="form-control" type="text" placeholder="Phone"
-                                 name="phone" onChange={this.change} value={this.state.phone} />
-                            </div>    
-                            <div className="form-group col-xs-3 col-md-3"> 
-                                <input className="form-control" type="email" placeholder="Email"
-                                 name="email" onChange={this.change} value={this.state.email} />
-                            </div>   
-                            <div className="form-group col-xs-2 col-md-2">
-                                <input className="btn" type="submit" disabled={!isValid} value="Add Contact" />
-                            </div>
-                        </div>
-                        <FontAwesomeIcon icon="address-book" size="5x"/>
-                    </form>
-                </div> */}
-                
                 <div className="col-12">
                     <div className="AddContact">
                         <div className="card">
@@ -81,6 +76,7 @@ class AddContact extends Component {
                                 <div>
                                     <span><FontAwesomeIcon icon="user-plus"/> Add Contact</span>
                                 </div>
+                                <span className="close-modal-btn" onClick={this.cancel}><FontAwesomeIcon icon="times"/></span>
 
                             </div>
                             <div className="card-body">

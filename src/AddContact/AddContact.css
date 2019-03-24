@@ -9,13 +9,19 @@
 
 .card-header {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     /* justify-content: center; */
     background-color: rgba(0, 116, 217, 1.0) !important;
     color:white;
 }
 
-.card-header span {
+.card-header div span {
     margin-right:5px;
+}
+
+.close-modal-btn:hover {
+    color: black;
 }
 
 .row {

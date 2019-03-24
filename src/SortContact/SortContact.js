@@ -1,33 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SortContact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class SortContact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selected:'default'
-        };
-    }
-    
-    change = (e) => {
-        // console.log(e.target.value);
-        this.setState({
-            selected:e.target.value
-        });
-        this.props.onSelect(e.target.value);
-    }
-    
-    
-    render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-6">
-                        <div className="sortContainer">
-                            <div className="form-inline">
-                                <div className="form-group">
-                                    <label>Sort By:</label>
-                                    <select onChange={this.change} className="form-control" name="sort">
+const SortContact = (props) => {
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col-6">
+                    <div className="sortContainer">
+                        <div className="form-inline">
+                            <div className="form-group">
+                                <div className="input-group mb-12">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><FontAwesomeIcon icon="sort" aria-hidden="true"/></span>
+                                    </div>
+                                    <select onChange={props.onSelect} className="form-control" name="sort">
                                         <option value="default">Choose</option>
                                         <option name="name" value="name">Name</option> 
                                         <option name="phone" value="phone">Phone</option>
@@ -38,9 +25,9 @@ class SortContact extends Component {
                         </div>
                     </div>
                 </div>
-            </div> 
-        );
-    }
+            </div>
+        </div> 
+    );
 }
 
 export default SortContact;

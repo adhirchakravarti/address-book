@@ -1,6 +1,6 @@
 import React from 'react';
 import './Cockpit.css';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import logo from '../logo.svg';
 
 const Cockpit = (props) => {

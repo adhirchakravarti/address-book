@@ -5,48 +5,40 @@ class ContactDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:this.props.contact.name,
-            phone:this.props.contact.phone,
-            email:this.props.contact.email,
-            organization:this.props.contact.organization,
-            notes:this.props.contact.notes
+            name:'',
+            phone:'',
+            email:'',
+            organization:'',
+            notes:''
         };
     }
 
-    componentWillReceiveProps ( nextProps ) {
-        // console.log( '[UPDATE ContactDetail.js] Inside componentWillReceiveProps', nextProps );
-        if (this.props.contact.name !== nextProps.contact.name || this.props.contact.phone !== nextProps.contact.phone ||
-            this.props.contact.email !== nextProps.contact.email || this.props.contact.organization !== nextProps.contact.organization || this.props.contact.notes !== nextProps.contact.notes) {
-            this.setState({
-                name:nextProps.contact.name,
-                phone:nextProps.contact.phone,
-                email:nextProps.contact.email,
-                organization:nextProps.contact.organization,
-                notes:nextProps.contact.notes
+    componentDidMount(){
+        this.setState(()=>{
+            return {
+                name:this.props.contact.name,
+                phone:this.props.contact.phone,
+                email:this.props.contact.email,
+                organization:this.props.contact.organization,
+                notes:this.props.contact.notes
+            }
+        });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.contact.name !== prevProps.contact.name || this.props.contact.phone !== prevProps.contact.phone ||
+            this.props.contact.email !== prevProps.contact.email || this.props.contact.organization !== prevProps.contact.organization || this.props.contact.notes !== prevProps.contact.notes) {
+            this.setState(()=>{
+                return {
+                    name:this.props.contact.name,
+                    phone:this.props.contact.phone,
+                    email:this.props.contact.email,
+                    organization:this.props.contact.organization,
+                    notes:this.props.contact.notes
+                }
             });
         }
     }
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log("inside ContactDetail shouldComponentUpdate()");
-    //     console.log(nextProps, nextState);
-    //     if (this.props.contact.name !== nextProps.contact.name || this.props.contact.phone !== nextProps.contact.phone ||
-    //         this.props.contact.email !== nextProps.contact.email || this.props.contact.organization !== nextProps.contact.organization || this.props.contact.notes !== nextProps.contact.notes) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-
-    // }
-
-    // componentWillUpdate(nextProps, nextState) {
-    //     console.log("inside ContactDetail componentWillUpdate()");
-    //     console.log(nextProps, nextState);
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log("inside ContactDetail componentDidUpdate()");
-    //     console.log(prevProps, prevState);
-    // }
     
     render() {
         return (

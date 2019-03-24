@@ -19,7 +19,8 @@
 }
 
 .newContactButtonContainer {
-  display: inline-flex;
+  display: flex;
   text-align: center;
+  padding-top: 10px;
 }
 
